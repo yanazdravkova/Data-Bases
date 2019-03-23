@@ -60,3 +60,25 @@ where (cd = '12x' or cd = '40x') and price < 900
 select code, model, speed + ram + 10*screen as rating
 from laptop
 order by rating desc, code
+
+use ships
+
+-- Напишете заявка, която извежда името на класа и страната за всички класове с
+-- брой на оръдията по-малък от 10select class, countryfrom classeswhere numguns < 10-- Напишете заявка, която извежда имената на всички кораби, пуснати на вода
+-- преди 1915. Задайте псевдоним на колоната shipName
+select name as shipName
+from ships
+where launched < 1915
+
+-- Напишете заявка, която извежда имената на корабите потънали в битка и
+-- имената на битките в които са потънали
+select ship as shipName, battle
+from outcomes
+where result = 'sunk'
+
+-- Напишете заявка, която извежда имената на корабите с име, съвпадащо с името
+-- на техния класselect namefrom shipswhere name = class-- Напишете заявка, която извежда имената на всички кораби започващи с буквата Rselect *from shipswhere name like 'R%'-- Напишете заявка, която извежда имената на всички кораби, чието име е
+-- съставено от точно две думи.
+select *
+from ships
+where name like '% %' and name not like '% % %'
